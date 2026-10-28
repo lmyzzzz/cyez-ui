@@ -1,0 +1,20 @@
+@layer app-theme {
+  :root[data-brand='violet'] {
+    --color-accent: #5146ce;
+    --color-accent-hover: #4338b7;
+    --color-accent-pressed: #372e99;
+    --color-accent-soft: #efedfc;
+    --color-accent-contrast: #fff;
+    --color-focus-ring: rgb(81 70 206 / 30%);
+    --shadow-primary: 0 3px 8px rgb(81 70 206 / 14%);
+  }
+  :root[data-brand='violet'][data-theme='dark'] {
+    --color-accent: #b1a6ff;
+    --color-accent-hover: #c7bfff;
+    --color-accent-pressed: #9b8fec;
+    --color-accent-soft: #302944;
+    --color-accent-contrast: #1d1730;
+    --color-focus-ring: rgb(177 166 255 / 36%);
+    --shadow-primary: 0 3px 8px rgb(0 0 0 / 24%);
+  }
+}

@@ -1,0 +1,117 @@
+@layer ui-components {
+  [data-ui='startup'] {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 32px;
+    color: var(--color-text-strong);
+    background: var(--color-canvas);
+    font-family: var(--font-ui);
+  }
+  [data-ui='startup'] [data-part='mark'] {
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin-bottom: 8px;
+    isolation: isolate;
+    animation: series-startup-mark var(--startup-enter-duration) var(--startup-easing) both;
+  }
+  [data-ui='startup'] [data-part='mark']::before {
+    content: '';
+    position: absolute;
+    inset: -28px;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-accent-soft), transparent 72%);
+  }
+  [data-ui='startup'] [data-part='icon'] {
+    width: var(--startup-icon-size);
+    height: var(--startup-icon-size);
+    object-fit: contain;
+  }
+  [data-ui='startup'] h1 {
+    margin: 0;
+    font-size: 24px;
+    animation: series-startup-copy var(--startup-enter-duration) var(--startup-easing) 60ms both;
+  }
+  [data-ui='startup'] p {
+    margin: 0;
+    color: var(--color-text-muted);
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  [data-ui='startup'] [data-part='subtitle'] {
+    animation: series-startup-copy var(--startup-enter-duration) var(--startup-easing) 100ms both;
+  }
+  [data-ui='startup'] [data-part='progress'] {
+    width: 140px;
+    height: 4px;
+    overflow: hidden;
+    border-radius: var(--radius-xs);
+    background: var(--color-accent-soft);
+    margin-top: 8px;
+    animation: series-startup-copy var(--startup-enter-duration) var(--startup-easing) 140ms both;
+  }
+  [data-ui='startup'] [data-part='progress']::after {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: var(--color-accent);
+    animation: series-startup 1s ease-in-out infinite alternate;
+  }
+  [data-ui='startup'] button {
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    padding: 8px 16px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+  [data-ui='startup'][data-state='leaving'] {
+    animation: series-startup-exit var(--startup-exit-duration) ease-out both;
+  }
+  [data-ui='startup'][data-state='error'],
+  [data-ui='startup'][data-state='error'] * {
+    animation: none;
+  }
+  @keyframes series-startup-mark {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes series-startup-copy {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes series-startup-exit {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes series-startup {
+    to {
+      transform: translateX(150%);
+    }
+  }
+}

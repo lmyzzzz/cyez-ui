@@ -1,0 +1,50 @@
+{
+  "name": "series-desktop-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build:packages": "npm run build -w @series/ui && npm run build -w @series/electron",
+    "build": "npm run build:packages && npm run build -w @series/showcase && npm run build -w series-electron-template",
+    "typecheck": "tsc --noEmit && tsc -p apps/electron-template/tsconfig.json --noEmit",
+    "dev": "npm run dev -w @series/showcase",
+    "dev:electron": "npm run dev -w series-electron-template",
+    "test": "vitest run",
+    "test:browser": "playwright test",
+    "test:electron": "node scripts/test-electron.mjs",
+    "verify:consumer": "node scripts/verify-consumer.mjs",
+    "package:electron": "npm run package:dir -w series-electron-template",
+    "create:app": "node scripts/create-app.mjs",
+    "format": "prettier --write \"packages/*/src/**/*.{ts,tsx,css}\" \"apps/*/src/**/*.{ts,tsx,css,html}\" \"scripts/*.mjs\" \"tests/**/*.{ts,tsx}\" \"*.{ts,json,md}\" \"docs/*.md\"",
+    "test:template-browser": "node scripts/check-template-browser.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/jest-dom": "6.9.1",
+    "@types/node": "22.20.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitejs/plugin-react": "5.1.1",
+    "electron": "44.9.1",
+    "electron-builder": "26.15.3",
+    "electron-vite": "5.0.0",
+    "esbuild": "0.25.12",
+    "jsdom": "29.1.1",
+    "typescript": "5.9.3",
+    "vite": "7.3.6",
+    "vitest": "4.1.11",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-router-dom": "7.18.2",
+    "prettier": "3.8.5"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

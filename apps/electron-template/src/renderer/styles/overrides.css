@@ -1,0 +1,10 @@
+@layer app-overrides {
+  .welcome {
+    text-align: center;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+  [data-ui='page-header'] > h1 {
+    letter-spacing: -0.4px;
+  }
+}

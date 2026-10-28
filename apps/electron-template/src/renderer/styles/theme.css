@@ -1,0 +1,20 @@
+@layer app-theme {
+  :root {
+    --color-accent: #087c72;
+    --color-accent-hover: #06685f;
+    --color-accent-pressed: #05584f;
+    --color-accent-soft: #e8f4f2;
+    --color-accent-contrast: #fff;
+    --color-focus-ring: rgb(8 124 114 / 30%);
+    --shadow-primary: 0 3px 8px rgb(8 124 114 / 14%);
+  }
+  :root[data-theme='dark'] {
+    --color-accent: #55b8ac;
+    --color-accent-hover: #70c8bd;
+    --color-accent-pressed: #3e9f94;
+    --color-accent-soft: #1d3935;
+    --color-accent-contrast: #0f1d1b;
+    --color-focus-ring: rgb(85 184 172 / 36%);
+    --shadow-primary: 0 3px 8px rgb(0 0 0 / 24%);
+  }
+}

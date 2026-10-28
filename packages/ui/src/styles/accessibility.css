@@ -1,0 +1,25 @@
+@layer ui-motion {
+  :where([data-ui]) {
+    box-sizing: border-box;
+  }
+  [data-motion='reduce'] *,
+  [data-motion='reduce'] *::before,
+  [data-motion='reduce'] *::after {
+    animation-duration: 0s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    transition-duration: 0s;
+    scroll-behavior: auto;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :root:not([data-motion='full']) *,
+    :root:not([data-motion='full']) *::before,
+    :root:not([data-motion='full']) *::after {
+      animation-duration: 0s;
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      transition-duration: 0s;
+      scroll-behavior: auto;
+    }
+  }
+}

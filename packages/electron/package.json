@@ -1,0 +1,32 @@
+{
+  "name": "@series/electron",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Minimal window controls for main and sandboxed preload",
+  "files": [
+    "dist",
+    "LICENSE",
+    "NOTICE.md"
+  ],
+  "exports": {
+    "./main": {
+      "types": "./dist/types/main.d.ts",
+      "import": "./dist/main.js"
+    },
+    "./preload": {
+      "types": "./dist/types/preload.d.ts",
+      "import": "./dist/preload.js",
+      "require": "./dist/preload.cjs"
+    },
+    "./shared": {
+      "types": "./dist/types/shared.d.ts",
+      "import": "./dist/shared.js"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs && tsc -p tsconfig.build.json"
+  },
+  "peerDependencies": {
+    "electron": ">=39 <45"
+  }
+}
